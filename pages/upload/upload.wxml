@@ -1,0 +1,111 @@
+<view class="c_box">
+<form bindsubmit="bindSaveTap">
+ <view class="row3">
+     <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}"
+       bindcontroltap="controltap" markers="{{markers}}" circles="{{circles}}" 
+       bindmarkertap="markertap" polyline="{{polyline}}"
+       bindregionchange="regionchange" show-location 
+       style="width: 100%;height:100%;">
+     </map>
+    </view>
+
+     <!--位置-->
+    <view class="row5">
+      <image src="https://meilizhongguo.wang/x/img/iconDw.png" class="iconDw"></image>
+      <view type="text" bindtap="dingwei" class="inputZhiwei">{{txt_weizhi}}</view>
+      <view class="clearfix"></view>
+    </view>
+
+    
+ <!--设施类型,故障类型-->
+  <view class="row1">
+      <view class="nameBox">
+      <!--  <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD" bindtap="choosess"></image>-->
+          <picker bindchange="xuanzesheshi" value="{{index_sheshi}}" range="{{arraysheshi}}">
+                  <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD" bindtap="choosess"></image>
+
+        <view class="pDate">{{arraysheshi[index_sheshi]}}</view>
+      </picker>
+    </view>
+
+     <view class="sexBox">
+       <!--    <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD"></image>-->
+      
+    <block wx:if='{{index_sheshi==0}}'>
+        <picker bindchange="xuanzeguzhang" value="{{index_guzhang}}" range="{{arrayguzhang}}">
+         <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD"></image>
+           <view class="pDate">{{arrayguzhang[index_guzhang]}}</view>
+      </picker>
+     </block>
+  <block wx:if='{{index_sheshi==1}}'>
+          <picker bindchange="xuanzeguzhang" value="{{index_dengguzhang}}" range="{{arraydengguzhang}}">
+           <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD"></image>
+           <view class="pDate">{{arraydengguzhang[index_dengguzhang]}}</view>
+      </picker>
+  </block>
+
+   <block wx:if='{{index_sheshi==2}}'>
+          <picker bindchange="xuanzeguzhang" value="{{index_pingguzhang}}" range="{{arraypingguzhang}}">
+           <image src="https://meilizhongguo.wang/x/img/iconArrowD.png" class="iconArrowD"></image>
+           <view class="pDate">{{arraypingguzhang[index_pingguzhang]}}</view>
+      </picker>
+  </block> 
+
+      </view>
+      <view class="clearfix"></view>
+  </view>
+
+
+
+<!--备注-->
+    <view class="row6">
+      
+      <!--<input name="txt_beizhu"  placeholder="问题描述:(最多输入140个字)" class="inputBz" maxlength="140" />-->
+      <textarea name="txt_beizhu" maxlength="150" value="{{evaContent}}" class="inputBz" placeholder="问题描述:(最多输入140个字)" bindblur="charChange" />  
+     
+    </view>
+   <view class="row1">
+    <!--
+     <view class="nameBox">
+        <image src="https://meilizhongguo.wang/x/img/iconName.png" class="iconName"></image>
+        <input name="user_name" placeholder="您的姓名" class="inputName" value="{{userInfo.user_name}}"/>
+    </view>
+-->
+     <view class="nameBox">
+       <image src="https://meilizhongguo.wang/x/img/iconPhone.png" class="iconPhone"></image>
+          <input name="txt_shoujihao"  placeholder="手机号（联系反馈）" class="inputName" maxlength="11"  />
+      </view>
+      <!-- <view class="sexBox"> 
+      <button  class="scan" bindtap="scanning"  >扫码拨打24小时抢修电话</button>
+       </view> -->
+      <view class="clearfix">
+      </view>
+
+</view>
+
+  <view class="row4">
+        <block wx:if='{{tupian1==true}}'>
+          <image src="{{tupian_url1}}" bindtap='chooseImageTap' data-index='1' class="touxiang"></image>
+        </block>
+        <block wx:if='{{tupian1==false}}'>
+          <image src="/images/plus.png" class="touxiang" bindtap='chooseImageTap' data-index='1'></image>
+        </block>
+
+         <block wx:if='{{tupian2==true}}'>
+          <image src="{{tupian_url2}}" bindtap='chooseImageTap' data-index='2' class="touxiang"></image>
+        </block>
+        <block wx:if='{{tupian1==true&&tupian2==false}}'>
+          <image src="/images/plus.png" class="touxiang" bindtap='chooseImageTap' data-index='2'></image>
+        </block>
+
+         <block wx:if='{{tupian3==true}}'>
+          <image src="{{tupian_url3}}" bindtap='chooseImageTap' data-index='3' class="touxiang"></image>
+        </block>
+        <block wx:if='{{tupian2==true&&tupian3==false}}'>
+          <image src="/images/plus.png" class="touxiang" bindtap='chooseImageTap' data-index='3'></image>
+        </block>
+<text class="tip">最多上传三张图片</text>
+  </view>   
+<button  class="btnNext" formType="submit" >提交</button>
+</form>
+</view>

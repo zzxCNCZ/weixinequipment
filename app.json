@@ -1,0 +1,15 @@
+{
+    "pages": [
+      "pages/login/login",
+      "pages/upload/upload",   
+      "pages/index/index",
+      "pages/chat/chat",
+      "pages/suggestion/suggestion"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#333",
+        "navigationBarTitleText": "北京交警科技设施故障报修",
+        "navigationBarTextStyle": "white"
+    }
+}
