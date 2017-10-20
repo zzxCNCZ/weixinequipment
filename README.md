@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 腾讯云微信小程序一站式解决方案客户端示例
 =====================================
 
@@ -51,3 +52,8 @@ Demo
 `config.js` 是我们小程序自己的业务配置。
 
 `vendor/qcloud-weapp-client-sdk` 是[客户端 SDK](https://github.com/tencentyun/weapp-client-sdk) 的一份拷贝。
+=======
+# weixinequipment
+设备报修
+shijian
+>>>>>>> 2c2777c07fe398ad2ee7ba6cbaf810295d2e4e37
